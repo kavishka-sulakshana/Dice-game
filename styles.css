@@ -25,7 +25,7 @@ body{
     box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.67) inset;
 }
 
-.score-board div img{
+.score-board > div img{
     width: 150px;
 }
 
@@ -45,6 +45,8 @@ body{
     background-color: #272727;
     box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.67) inset;
     text-shadow: 2px 2px #044e53;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .middle-part button:active{
@@ -69,7 +71,7 @@ body{
     align-items: center;
 }
 
-.player-area > div > div {
+.playerInfo {
     background-color: #202833;
     width: 100px;
     color: white;
@@ -96,4 +98,23 @@ body{
     transform: scale(1.3);
 }
 
+.middle-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.middle-display div{
+    background-color: #044e53;
+    padding: 30px 20px;
+    width: 200px;
+    text-align: center;
+    font-size: x-large;
+    color: white;
+    border-radius: 5px;
+
+}
+.disabled{
+    display: none;
+}

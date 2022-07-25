@@ -4,6 +4,7 @@ let p1Mark = document.getElementById("p1Mark");
 let p2Mark = document.getElementById("p2Mark");
 let p1Name = document.getElementById("p1Name");
 let p2Name = document.getElementById("p2Name");
+let display = document.getElementById("display");
 
 let rolling = 1;
 let currentRoller = 1;
@@ -34,8 +35,22 @@ const randomRoll = () => {
     
 }
 
+const swapColors = () => {
+    if(total1>total2){
+        p2Mark.classList.add('loosing');
+        p1Mark.classList.remove('loosing');
+    }
+    else if(total2>total1){
+        p1Mark.classList.add('loosing');
+        p2Mark.classList.remove('loosing');
+    }
+    else{
+        p1Mark.classList.remove('loosing');
+        p2Mark.classList.remove('loosing');
+    }
+}
 
-document.getElementById('btn').addEventListener('click',async()=>{
+document.getElementById('btn').addEventListener('click',()=>{
     if(currentRoller === 1){
         let diceScores = randomRoll();
         if(diceScores[0] === diceScores[1]){
@@ -50,7 +65,7 @@ document.getElementById('btn').addEventListener('click',async()=>{
             total1 += (diceScores[0]+diceScores[1]);
             currentRoller = 2;
         }
-        p1Mark.textContent = total1;
+        p1Mark.textContent = (total1>100)?100:total1;
     }
     else if(currentRoller === 2){
         let diceScores = randomRoll();
@@ -66,23 +81,37 @@ document.getElementById('btn').addEventListener('click',async()=>{
             total2 += (diceScores[0]+diceScores[1]);
             currentRoller = 1;
         }
-        p2Mark.textContent = total2;
+        p2Mark.textContent = (total2>100)?100:total2;
+    }
+    display.textContent = (currentRoller === 1)?"Player 1 chance":"Player 2 chance";
+    swapColors();
+    if(total1>=100 || total2>=100){
+        if(total1 > total2){
+            display.textContent = "Player 1 won"
+        }
+        if(total2 > total1){
+            display.textContent = "Player 1 won"
+        }
+        if(total1 === total2){
+            display.textContent = "DRAW"
+        }
+        document.getElementById('btn').disabled = true;
+        document.getElementById('rstbtn').classList.remove('disabled');
     }
 
-    if(total1>total2){
-        p2Mark.classList.add('loosing');
-        p1Mark.classList.remove('loosing');
-    }
-    else if(total2>total1){
-        p1Mark.classList.add('loosing');
-        p2Mark.classList.remove('loosing');
-    }
-    else{
-        p1Mark.classList.remove('loosing');
-        p2Mark.classList.remove('loosing');
-    }
-})
+}); 
 
+document.getElementById('rstbtn').addEventListener('click',()=>{
+    total1 = 0;
+    total2 = 0;
+    display.textContent = "Roll dices"
+    dice1.src = `Images/dice_1.png`;
+    dice2.src = `Images/dice_1.png`;
+    p1Mark.textContent = 0;
+    p2Mark.textContent = 0;
+    document.getElementById('btn').disabled = false;
+    document.getElementById('rstbtn').classList.add('disabled');
+});
 
 
 
