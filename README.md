@@ -1,1 +1,1 @@
-# Dice-game
+### Simple dice game for assignment
