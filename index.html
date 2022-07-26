@@ -9,7 +9,30 @@
 </head>
 <body>
     <div class="main">
-        <div class="container">
+        <div class="init-panel" id="face1">
+            <div class="name-init">
+                Dice Game
+            </div>
+            <div class="name-box">
+                <label>Player 1 name : </label>
+                <input type="text" class="input" placeholder="Player 1">
+            </div>
+            <div class="name-box">
+                <label>Player 2 name : </label>
+                <input type="text" class="input" placeholder="Player 2">
+            </div>
+            <div class="name-box">
+                <label>Max score : </label>
+                <input type="number" class="input" placeholder="100">
+            </div>
+            <div class="init-btn">
+                <button type="button" id="nxtbtn">Next</button>
+            </div>
+        </div>
+        <div class="container disabled" id="face2">
+            <div class="backBtn">
+                Back
+            </div>
             <div class="score-board">
                     <div class="dice-1">
                         <img src="Images/dice_1.png" alt="" id="dice1">
@@ -27,7 +50,7 @@
                 </button>
             </div>
             <div class="player-area">
-                <div class="left">
+                <div class="left" id="left">
                     <img src="Images/player1.png" alt="player1">
                     <div class="playerInfo">
                         <div class="name" id="p1Name">Player 1</div>
@@ -38,10 +61,11 @@
                 </div>
                 <div class="middle-display">
                     <div id="display">
-                         Roll dice
+                        Roll dices
                     </div>
+                    <img src="Images/cup.gif" id="winnerImg" class="disabled">
                 </div>
-                <div class="right">
+                <div class="right" id="right">
                     <img src="Images/player2.png" alt="player2">
                     <div class="playerInfo">
                         <div class="name" id="p2Name">Player 2</div>
