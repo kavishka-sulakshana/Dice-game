@@ -24,31 +24,16 @@ getElement('nxtbtn').addEventListener('click',()=>{
     p2Name.textContent = p2;
     getElement('face1').classList.add('disabled');
     getElement('face2').classList.remove('disabled');
-    display.textContent = `${p1} start rolling`
+    display.textContent = `${p1} start rolling`;
 });
 
 const randomRoll = () => {
-    let diceRoll;
     let c1 = Math.floor((Math.random()*6)+1);
     let c2 = Math.floor((Math.random()*6)+1);
-    // let fn1 = c1;
-    // let fn2 = c2;
-    //     diceRoll = setInterval(()=>{
-    //         dice1.src = `Images/dice_${(fn1++)%6+1}.png`;
-    //         dice2.src = `Images/dice_${(fn2++)%6+1}.png`;
-    //         rolling = 1;
-    //     },100)
-
-    // let timeout = setTimeout(()=>{
-    //     clearInterval(diceRoll);
-    //     rolling = 0;
-    //     // clearTimeout(timeout);
-    // },1000);
     dice1.src = `Images/dice_${c1}.png`;
     dice2.src = `Images/dice_${c2}.png`;
     console.log(c1,c2);
     return [c1, c2];
-    
 }
 
 const resetGame = () => {
