@@ -1,1 +1,2 @@
-### Simple dice game for assignment
+### Simple dice game 
+`HTML` `CSS` `JAVASCRIPT`
